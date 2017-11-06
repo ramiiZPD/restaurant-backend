@@ -26,7 +26,7 @@ exports.makeReservation = function(reservationId, userId, mobile, noOfGuests, ar
                 service: 'gmail',
                 auth: {
                     user: 'designathonux@gmail.com',
-                    pass: '1qaz2wsx@#'
+                    pass: '*********'
                 }
             });
 
