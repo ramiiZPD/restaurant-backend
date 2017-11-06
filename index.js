@@ -32,3 +32,5 @@ app.listen(config.server.port, function(error) {
     }
     console.log("API is Running on http:://localhost/8080");
 });
+
+module.exports = app;
