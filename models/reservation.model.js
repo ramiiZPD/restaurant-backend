@@ -12,8 +12,13 @@ exports.makeReservation = function(reservationId, userId, mobile, noOfGuests, ar
         } else {
             console.log('[reservation.model] - makeReservation query ok');
 
-            // SMS API integration
-            nexmo.message.sendSms(mobile, mobile, 'Reservation Made', function(error, responseData) {
+            // Nexmo SMS library integration
+            var nexmo = new Nexmo({
+                apiKey: 'e5da879f',
+                apiSecret: '3bbf797519acf919'
+            });
+
+            nexmo.message.sendSms(mobile, mobile, 'Your reservation has been confirmed. Your reservation id is '+reservationId +'. Enjoy!!', function(error, responseData) {
                 if (error) {
                     console.log("SMS API integrtion error");
                 } else {
@@ -26,7 +31,7 @@ exports.makeReservation = function(reservationId, userId, mobile, noOfGuests, ar
                 service: 'gmail',
                 auth: {
                     user: 'designathonux@gmail.com',
-                    pass: '*********'
+                    pass: '********'
                 }
             });
 
@@ -34,7 +39,7 @@ exports.makeReservation = function(reservationId, userId, mobile, noOfGuests, ar
                 from: 'designathonux@gmail.com',
                 to: email,
                 subject: 'Reservation',
-                text: 'Your reservation id is ' + reservationId + ' come on time at ' + arrivalTime
+                text: 'Your reservation has been confirmed. Your reservation id is ' + reservationId +'. Take care!!'
             };
 
             transporter.sendMail(mailOptions, function(error, info) {

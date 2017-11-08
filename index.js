@@ -11,12 +11,6 @@ var config = require('./config');
 // Initializing ExpressJS
 var app = express();
 
-// Nexmo SMS library integration
-var nexmo = new Nexmo({
-    apiKey: 'e5da879f',
-    apiSecret: '3bbf797519acf919'
-});
-
 // Central Router
 app.use(cors());
 var controller_index = require('./controllers/index.js');
